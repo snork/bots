@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Инструкция — Бот «Инструменты для коучей»</title>
+  <meta name="description" content="Пошаговая инструкция, как сделать колесо баланса в Telegram-боте «Инструменты для коучей».">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712107.png">
+  <style>
+    :root {
+      --bg: #fff;
+      --ink: #111318;
+      --muted: #5c606a;
+      --brand: #e06aa3; /* фирменный розовый, можно поменять */
+      --card: #f8f7fa;
+      --accent: #ffe9f0;
+      --radius: 16px;
+      --shadow: 0 8px 24px rgba(17,19,24,.08);
+      --mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    header {
+      background: linear-gradient(180deg, #fff0f5, #fff);
+      border-bottom: 1px solid #f2dce8;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--brand);
+    }
+    header p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+    .step {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid #eee;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .step h2 {
+      margin-top: 0;
+      color: var(--brand);
+      font-size: 1.2rem;
+    }
+    .step img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 10px;
+      border: 1px solid #eee;
+    }
+    .code {
+      background: #1a1a2b;
+      color: #eee;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 0.9rem;
+    }
+    .note {
+      background: var(--accent);
+      border: 1px dashed #ff9fbb;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 0.9rem;
+      color: #7a2b49;
+      margin-top: 8px;
+    }
+    .cta {
+      display: inline-block;
+      background: var(--brand);
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 6px 16px rgba(224,106,163,.25);
+      margin-top: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #f2dce8;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎯 Как сделать колесо в боте «Инструменты для коучей»</h1>
+    <p>Пошаговая инструкция со скриншотами — от /start до готового PDF</p>
+    <a href="https://t.me/CoachToolsBot" target="_blank" class="cta">Открыть бота в Telegram</a>
+  </header>
+
+  <main>
+    <section class="step">
+      <h2>1️⃣ Запуск</h2>
+      <p>Напишите боту <code>/start</code>. Он поприветствует вас и предложит выбрать действие.  
+      Нажмите кнопку <b>🎯 «Сделать Колесо»</b>.</p>
+      <img src="images/IMG_6863.png" alt="Приветствие бота и меню">
+    </section>
+
+    <section class="step">
+      <h2>2️⃣ Введите данные</h2>
+      <p>Бот попросит прислать показатели в тексте. Каждая строка — <b>название</b> и <b>значение от 0 до 10</b>.  
+      Примеры:</p>
+      <div class="code">
+        Сон 8<br>
+        Энергия, 6.5<br>
+        Работа - 7
+      </div>
+      <div class="note">Минимум 3 показателя. Шкала подстраивается автоматически.</div>
+      <img src="images/IMG_6864.png" alt="Подсказка по форматам ввода">
+    </section>
+
+    <section class="step">
+      <h2>3️⃣ Пример списка</h2>
+      <div class="code">
+        Отдых 10<br>
+        Семья 3<br>
+        Друзья 5<br>
+        Работа 4<br>
+        Коучинг 5<br>
+        Спорт 5<br>
+        Прогулки 6<br>
+        Финансы 8<br>
+        Поездки 9
+      </div>
+      <img src="images/IMG_6865.png" alt="Пример списка показателей">
+    </section>
+
+    <section class="step">
+      <h2>4️⃣ Назовите колесо</h2>
+      <p>После проверки данных бот попросит ввести <b>название</b> — например: <i>Планы до Нового года</i>.</p>
+      <img src="images/IMG_6867.png" alt="Ввод названия колеса">
+    </section>
+
+    <section class="step">
+      <h2>5️⃣ Выберите цвет</h2>
+      <p>Выберите цветовую схему: 💛 Жёлтый, 💚 Зелёный, 💗 Розовый, 💙 Голубой, 🌈 Разноцветный.</p>
+      <img src="images/IMG_6868.png" alt="Выбор цвета колеса">
+    </section>
+
+    <section class="step">
+      <h2>6️⃣ Получите PDF</h2>
+      <p>Бот создаст колесо и пришлёт файл с вашей диаграммой (PDF). Его можно скачать и использовать в коучинг-сессии.</p>
+      <img src="images/IMG_6869.png" alt="Сообщение с PDF">
+      <img src="images/IMG_6870.png" alt="Пример готового колеса">
+    </section>
+
+    <section class="step">
+      <h2>💖 Поддержка проекта</h2>
+      <p>Вы можете поддержать проект <b>«Инструменты для коучей»</b> переводом донейшена прямо в боте — 100 ₽, 200 ₽, 300 ₽ или любая сумма.</p>
+    </section>
+  </main>
+
+  <footer>
+    Сделано с заботой о коучах · <a href="https://t.me/CoachToolsBot" target="_blank">Открыть бота</a><br>
+    &copy; 2025 Инструменты для коучей
+  </footer>
+</body>
+</html>
