@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;How to Create a Coaching Wheel – Coach Tools Bot&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Step-by-step guide on how to create your coaching wheel using the Coach Tools Telegram bot."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712107.png"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--ink: #111318;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--muted: #5c606a;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--brand: #3a80f7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--card: #f7f8fc;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--accent: #e8f2ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--radius: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--shadow: 0 8px 24px rgba(17,19,24,.08);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: "Segoe UI", Roboto, Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.5;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(180deg, #e9f2ff, #fff);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid #d6e4ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 40px 20px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--brand);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header p {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.lang-switch {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>right: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.lang-switch a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 6px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #dce7ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--brand);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.lang-switch a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--brand);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.lang-switch a.active {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--brand);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>main {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 920px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 30px 20px 60px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--card);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #eef1f7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step h2 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--brand);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.step img {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #dde3f2;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.code {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #1a1a2b;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #eee;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: var(--mono);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow-x: auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.note {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px dashed #6ea8ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #09437a;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--brand);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 6px 16px rgba(58,128,247,.25);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 30px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid #e0eaff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer a {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--brand);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: underline;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="lang-switch"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="index.html"&gt;🇷🇺 RU&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="index_en.html" class="active"&gt;🇬🇧 EN&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;🎯 How to Create a Coaching Wheel in “Coach Tools” Bot&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Step-by-step instructions from /start to your final PDF&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://t.me/CoachToolsBot" target="_blank" class="cta"&gt;Open Bot in Telegram&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="step"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;1️⃣ Start&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Type &lt;code&gt;/start&lt;/code&gt; to begin. <span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>The bot will greet you and ask to choose a language. Select &lt;b&gt;English 🇬🇧&lt;/b&gt;.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="images_en/IMG_7038.PNG" alt="Choose language screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="step"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;2️⃣ Main menu&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;After selecting the language, you’ll see the main menu. <span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>Click &lt;b&gt;🎯 Create Wheel Chart&lt;/b&gt;.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="images_en/IMG_7048.PNG" alt="Main menu after choosing language"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="step"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;3️⃣ Send your metrics&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Send your data in text format — each line should include a &lt;b&gt;name&lt;/b&gt; and a &lt;b&gt;value&lt;/b&gt; (from 0 to 10).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;b&gt;Examples:&lt;/b&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="code"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Sleep 8&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Energy, 6.5&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Work - 7</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="note"&gt;Minimum 3 metrics. Separators: space, comma, or dash.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="images_en/IMG_7042.PNG" alt="Data format examples"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="step"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;4️⃣ Example input&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="code"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Time for myself 10&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Family 3&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Friends 5&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Job 4&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Coaching 5&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Fitness 5&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Walks 6&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Finances 8&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Trips 9</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="images_en/IMG_7041.PNG" alt="Example of data input"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="step"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;5️⃣ Enter a title&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;After your data is accepted, the bot will ask you to enter a &lt;b&gt;title&lt;/b&gt; for your Wheel.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Example: &lt;i&gt;My Balance Wheel For Two Month&lt;/i&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="images_en/IMG_7040.PNG" alt="Enter title screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="step"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;6️⃣ Choose a color&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Select a color scheme for your Wheel: 💛 Yellow, 💚 Green, 💗 Pink, 💙 Blue, or 🌈 Rainbow.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="images_en/IMG_7043.PNG" alt="Choose color scheme screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="step"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;7️⃣ Get your PDF&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;The bot will create your Wheel and send a PDF file you can download or share with your client.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="images_en/IMG_7044.PNG" alt="Wheel ready message"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="images_en/IMG_7039.PNG" alt="Example of generated wheel chart"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="step"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;💖 Support the project&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;You can support the &lt;b&gt;“Coach Tools”&lt;/b&gt; project by sending a small donation directly in the bot — 100 ₽, 200 ₽, 300 ₽ or any amount.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Made with 💙 for coaches · &lt;a href="https://t.me/CoachToolsBot" target="_blank"&gt;Try the bot&lt;/a&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>© 2025 Coach Tools</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
