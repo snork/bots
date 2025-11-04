@@ -40,6 +40,34 @@
       color: var(--muted);
       font-size: 1rem;
     }
+    .lang-switch {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      display: flex;
+      gap: 6px;
+    }
+    .lang-switch a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid #dce7ff;
+      background: #fff;
+      color: var(--brand);
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .lang-switch a:hover {
+      background: var(--brand);
+      color: #fff;
+    }
+    .lang-switch a.active {
+      background: var(--brand);
+      color: #fff;
+      pointer-events: none;
+    }
+    
     main {
       max-width: 920px;
       margin: 0 auto;
